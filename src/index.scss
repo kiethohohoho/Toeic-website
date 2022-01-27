@@ -8,6 +8,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .contentTextDesktop {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -33,10 +38,29 @@ a {
   font-size: 16px;
 }
 
+//style cho phần slide
 .slide-container {
-  padding: 10px 30px;
+  padding: 10px 10px 0;
+
+  .react-slideshow-container {
+    width: 95%;
+    margin: 0 auto;
+
+    button[data-type="prev"] {
+      margin-right: -40px;
+    }
+    button[data-type="next"] {
+      margin-left: -40px;
+    }
+
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
 }
 
+//style cho contact
 #contact {
   margin-bottom: 30px;
 
@@ -50,14 +74,13 @@ a {
     margin: 0 auto;
 
     .section-title {
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: 400;
       color: black;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       text-transform: uppercase;
       letter-spacing: 0.2rem;
       text-align: center;
-      margin-top: 0;
 
       span {
         color: crimson;
@@ -74,18 +97,19 @@ a {
 
       @media screen and (max-width: 800px) {
         flex-direction: column;
+        // gap: 20px;
       }
 
       .contact-item {
-        height: 340px;
-        flex-basis: calc(100% / 3);
+        height: 250px;
+        flex-basis: calc(100% / 5);
         max-width: 300px;
         text-align: center;
         border-radius: 10px;
         padding: 30px;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         box-shadow: 0px 0px 18px 0 #0000002c;
         transition: 0.3s ease box-shadow;
@@ -102,7 +126,6 @@ a {
         .icon {
           width: 100%;
           margin: 0 auto;
-          margin-bottom: 10px;
         }
         .contact-info {
           h1 {
