@@ -2,12 +2,14 @@ import React from "react";
 import Navbar from "./Header/Navbar";
 import Slider from "./Slider";
 import Contact from "./Contact";
+import Course from "./Coures";
 
 const HomePage = () => {
   return (
     <>
       <Navbar />
       <Slider />
+      <Course />
       <Contact />
     </>
   );

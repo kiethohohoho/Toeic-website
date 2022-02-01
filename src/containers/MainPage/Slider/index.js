@@ -1,5 +1,6 @@
 import { Zoom } from "react-slideshow-image";
 import { makeStyles, useTheme, useMediaQuery } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   sliderWrapper: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 0,
   },
   link: {
-    color: "#fff",
+    color: "#fff !important",
     fontSize: "3rem",
     fontWeight: 900,
     textTransform: "capitalize",
@@ -105,14 +106,9 @@ const Slideshow = () => {
           >
             <div className={classes.sliderLeft}>
               <h2>
-                <a
-                  className={classes.link}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  href={each.linkPost}
-                >
+                <Link className={classes.link} to={each.linkPost}>
                   {each.content.title}
-                </a>
+                </Link>
               </h2>
               <p
                 className={
@@ -124,13 +120,13 @@ const Slideshow = () => {
               </p>
             </div>
             <div className={classes.sliderRight}>
-              <a rel="noopener noreferrer" target="_blank" href={each.linkPost}>
+              <Link to={each.linkPost}>
                 <img
                   src={each.image}
                   alt={each.title}
                   style={{ width: "100%" }}
                 />
-              </a>
+              </Link>
             </div>
           </div>
         ))}
