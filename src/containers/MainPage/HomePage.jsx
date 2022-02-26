@@ -7,7 +7,7 @@ import Course from "./Coures";
 const HomePage = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Slider />
       <Course />
       <Contact />

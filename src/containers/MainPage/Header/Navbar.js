@@ -8,7 +8,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import DrawerComponent from "./Drawer";
 
 const useStyles = makeStyles((theme) => ({
@@ -53,32 +53,35 @@ function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <AppBar position="static" className={classes.navBackground}>
-      <CssBaseline />
-      <Toolbar>
-        <Typography variant="h4" className={classes.logo}>
-          Hoàng Toeic
-        </Typography>
-        {isMobile ? (
-          <DrawerComponent />
-        ) : (
-          <div className={classes.navlinks}>
-            <Link to="/" className={classes.link}>
-              Home
-            </Link>
-            <Link to="/Login" className={classes.link}>
-              Log In
-            </Link>
-            <Link to="/Register" className={classes.link}>
-              Register
-            </Link>
-            <Link to="/faq" className={classes.link}>
-              FAQ
-            </Link>
-          </div>
-        )}
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar position="static" className={classes.navBackground}>
+        <CssBaseline />
+        <Toolbar>
+          <Typography variant="h4" className={classes.logo}>
+            Hoàng Toeic
+          </Typography>
+          {isMobile ? (
+            <DrawerComponent />
+          ) : (
+            <div className={classes.navlinks}>
+              <Link to="/" className={classes.link}>
+                Home
+              </Link>
+              <Link to="/Login" className={classes.link}>
+                Log In
+              </Link>
+              <Link to="/Register" className={classes.link}>
+                Register
+              </Link>
+              <Link to="/faq" className={classes.link}>
+                FAQ
+              </Link>
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
+      <Outlet />
+    </>
   );
 }
 export default Navbar;
