@@ -35,7 +35,7 @@ export const SIMPLE_PAGES = [
 
 export const PARAM_PAGES = [
   {
-    path: "hello",
+    param: "course",
     current: "courses",
     element: <Course />,
   },

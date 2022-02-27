@@ -13,7 +13,7 @@ export const renderParamRoutes = (routes) => {
     return (
       <Route
         key={Math.random()}
-        path={`${route.current}/:course`}
+        path={`${route.current}/:${route.param}`}
         element={route.element}
       />
     );
