@@ -1,4 +1,5 @@
 import GroupsIcon from "@mui/icons-material/Groups";
+import { Link } from "react-router-dom";
 
 const courses = [
   {
@@ -64,11 +65,9 @@ const Courses = () => {
                     {course.content.map((val) => (
                       <div key={val.id} className="section_col section_l-3">
                         <div className="CommonItem_wrapper">
-                          <a
+                          <Link
                             className="CommonItem_thumb"
-                            title="Kiến Thức Nhập Môn IT"
-                            target="_self"
-                            href="/courses/lessons-for-newbie"
+                            to={`/courses/${val.id}`}
                             style={{
                               backgroundImage:
                                 "url(https://files.fullstack.edu.vn/f8-prod/courses/7.png)",
@@ -77,14 +76,9 @@ const Courses = () => {
                             <button className="Button_btn CommonItem_cta-btn">
                               Xem khóa học
                             </button>
-                          </a>
+                          </Link>
                           <h3 className="CommonItem_title">
-                            <a
-                              target="_self"
-                              href="/courses/lessons-for-newbie"
-                            >
-                              {val.name}
-                            </a>
+                            <Link to={`/courses/${val.id}`}>{val.name}</Link>
                           </h3>
                           <div className="CourseItem_students-count">
                             <GroupsIcon />
