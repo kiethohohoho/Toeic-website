@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Header/Navbar";
+// import Navbar from "./Header/Navbar";
 import Slider from "./Slider";
 import Contact from "./Contact";
 import Course from "./Coures";
@@ -7,7 +7,6 @@ import Course from "./Coures";
 const HomePage = () => {
   return (
     <>
-      {/* <Navbar /> */}
       <Slider />
       <Course />
       <Contact />

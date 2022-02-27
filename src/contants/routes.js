@@ -3,33 +3,40 @@ import Login from "containers/Auth/Login";
 import Register from "containers/Auth/Register";
 import HomePage from "containers/MainPage/HomePage";
 import NotFound from "containers/MainPage/NotFound";
+import Courses from "containers/Courses";
+import Course from "containers/Course";
 
-export const ROUTE_HOME = [
+export const SIMPLE_PAGES = [
   {
-    name: "Trang chính",
     path: "",
     element: <HomePage />,
   },
   {
-    name: "Trang không tồn tại",
-    path: "*",
-    element: <NotFound />,
-  },
-];
-export const ROUTE_AUTH = [
-  {
-    name: "Đăng nhập",
     path: "login",
     element: <Login />,
   },
   {
-    name: "Đăng ký",
     path: "register",
     element: <Register />,
   },
   {
-    name: "Quên mật khẩu",
     path: "forgot_password",
     element: <ForgotPassword />,
+  },
+  {
+    path: "courses",
+    element: <Courses />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+];
+
+export const PARAM_PAGES = [
+  {
+    path: "hello",
+    current: "courses",
+    element: <Course />,
   },
 ];

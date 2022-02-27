@@ -67,10 +67,10 @@ function Navbar() {
               <Link to="/" className={classes.link}>
                 Home
               </Link>
-              <Link to="/Login" className={classes.link}>
+              <Link to="/login" className={classes.link}>
                 Log In
               </Link>
-              <Link to="/Register" className={classes.link}>
+              <Link to="/register" className={classes.link}>
                 Register
               </Link>
               <Link to="/faq" className={classes.link}>

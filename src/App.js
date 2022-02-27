@@ -1,16 +1,15 @@
-import {
-  // renderRoute,
-  renderRouteWithChildren,
-} from "components/common/customRoute";
-// import { ROUTE_AUTH, ROUTE_HOME } from "contants/routes";
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "containers/MainPage/Header/Navbar";
+import { SIMPLE_PAGES, PARAM_PAGES } from "contants/routes";
+import { renderRoutes, renderParamRoutes } from "components/common/customRoute";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* {renderRoute(ROUTE_HOME)} */}
-        {/* {renderRoute(ROUTE_AUTH)} */}
-        {renderRouteWithChildren()}
+        <Route path="/" element={<Navbar />}>
+          {renderRoutes(SIMPLE_PAGES)}
+          {renderParamRoutes(PARAM_PAGES)}
+        </Route>
       </Routes>
     </BrowserRouter>
   );
