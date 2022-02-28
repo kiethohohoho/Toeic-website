@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   navlinks: {
     marginLeft: theme.spacing(5),
     display: "flex",
-    fontFamily: "'Merienda', cursive",
+    fontFamily: "'Montserrat', sans-serif",
   },
   navBackground: {
     backgroundColor: "#fff",
@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     flexGrow: "1",
     cursor: "pointer",
-    fontFamily: "'Merienda', cursive",
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 900,
     [theme.breakpoints.down("sm")]: {
       fontSize: 25,
       textAlign: "center",
