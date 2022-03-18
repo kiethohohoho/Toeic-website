@@ -37,9 +37,9 @@ function Register() {
       });
     } catch (error) {
       console.log("lỗi rồi", { error });
-      toast.warning(`${error.response.data.message}`, {
-        position: "bottom-right",
-      });
+      // toast.warning(`${error.response.data.message}`, {
+      //   position: "bottom-right",
+      // });
     }
   };
   const handleSubmit = (e) => {
