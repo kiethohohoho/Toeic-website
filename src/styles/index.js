@@ -1,6 +1,45 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
+// for header style
+export const headerStyles = makeStyles((theme) => ({
+  navlinks: {
+    marginLeft: theme.spacing(5),
+    display: "flex",
+    fontFamily: "'Montserrat', sans-serif",
+  },
+  navBackground: {
+    backgroundColor: "#fff",
+    boxShadow: "0 4px 12px 0 rgb(0 0 0 / 5%)",
+    color: theme.palette.info.main,
+  },
+  logo: {
+    flexGrow: "1",
+    cursor: "pointer",
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 900,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 25,
+      textAlign: "center",
+    },
+  },
+  link: {
+    textDecoration: "none",
+    fontWeight: "700",
+    fontSize: "14px",
+    marginLeft: theme.spacing(2),
+    color: "#333 !important",
+
+    overFlow: "hidden",
+
+    "&:hover": {
+      //   color: theme.palette.info.main,
+      textDecoration: "underline",
+    },
+  },
+}));
+
+// for slider banner
+export const sliderStyles = makeStyles((theme) => ({
   sliderWrapper: {
     display: "flex",
     width: "100%",

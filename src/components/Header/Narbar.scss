@@ -1,0 +1,23 @@
+.menuNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.menuNav a {
+  font-size: 14px;
+  color: black !important;
+  font-weight: 600;
+}
+.menuNav a.active {
+  padding: 6px 18px;
+  background: #f1efef;
+  border-radius: 100rem;
+}
+
+.menuNav .btn {
+  padding: 6px 24px;
+  background: #f05123;
+  color: white !important;
+  border-radius: 100rem;
+}

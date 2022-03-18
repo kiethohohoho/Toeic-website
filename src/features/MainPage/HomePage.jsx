@@ -6,8 +6,8 @@ import React from "react";
 const HomePage = () => {
   return (
     <LayoutMainPage>
-      {/* slider banner here */}
       <Container type="wide">
+        {/* slider banner here */}
         <SliderBanner />
       </Container>
     </LayoutMainPage>

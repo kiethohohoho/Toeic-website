@@ -9,7 +9,7 @@ export const imageSlider = [
     },
     linkPost: "",
     image:
-      "https://cdn.fullstack.edu.vn/f8-production/banners/Banner_web_ReactJS.png",
+      "https://cdn2.iconfinder.com/data/icons/people-wearing-surgical-mask-at-different-places/327/mask-places-6-512.png",
   },
   {
     background:
@@ -19,7 +19,8 @@ export const imageSlider = [
       main: "Để đạt được kết quả tốt trong mọi việc ta cần xác định mục tiêu rõ ràng cho việc đó. Học lập trình cũng không là ngoại lệ.",
     },
     linkPost: "",
-    image: "https://cdn.fullstack.edu.vn/f8-production/banners/Banner_01_2.png",
+    image:
+      "https://cdn2.iconfinder.com/data/icons/people-wearing-surgical-mask-at-different-places/327/mask-places-6-512.png",
   },
   {
     background: "linear-gradient(to right, rgb(254, 33, 94), rgb(255, 148, 2))",
@@ -28,7 +29,8 @@ export const imageSlider = [
       main: "F8 được nhắc tới ở mọi nơi, ở đâu có cơ hội việc làm cho nghề IT và có những con người yêu thích lập trình F8 sẽ ở đó.",
     },
     linkPost: "",
-    image: "https://cdn.fullstack.edu.vn/f8-production/banners/Banner_01_2.png",
+    image:
+      "https://cdn2.iconfinder.com/data/icons/people-wearing-surgical-mask-at-different-places/327/mask-places-6-512.png",
   },
   {
     background: "linear-gradient(to right, rgb(0, 126, 254), rgb(6, 195, 254))",
@@ -37,6 +39,7 @@ export const imageSlider = [
       main: "F8 được nhắc tới ở mọi nơi, ở đâu có cơ hội việc làm cho nghề IT và có những con người yêu thích lập trình F8 sẽ ở đó.",
     },
     linkPost: "",
-    image: "https://cdn.fullstack.edu.vn/f8-production/banners/Banner_04_2.png",
+    image:
+      "https://cdn2.iconfinder.com/data/icons/people-wearing-surgical-mask-at-different-places/327/mask-places-6-512.png",
   },
 ];

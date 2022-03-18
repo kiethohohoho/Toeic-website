@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import GroupsIcon from "@mui/icons-material/Groups";
 // import { courses } from "data/Courses";
-import coursesApi from "../../../apis/coursesApi";
+
 import { useEffect, useState } from "react";
 import LayoutMainPage from "components/LayoutMainPage";
+import coursesApi from "apis/coursesApi";
 
 const getCourses = async () => {
   try {

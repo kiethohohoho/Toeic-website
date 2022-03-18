@@ -8,6 +8,7 @@ import Course from "features/MainPage/Coures";
 import CourseDetail from "features/MainPage/Coures/CourseDetail";
 import HomePage from "features/MainPage/HomePage";
 import NotFound from "features/MainPage/NotFound";
+import Review from "features/MainPage/Review";
 import Student from "features/Student/Student";
 import StudentProfile from "features/Student/StudentProfile";
 
@@ -22,6 +23,11 @@ const MAIN_ROUTE = [
     role: "page",
     path: "/contact",
     element: <Contact />,
+  },
+  {
+    role: "page",
+    path: "/reviews",
+    element: <Review />,
   },
   {
     role: "page",

@@ -2,7 +2,7 @@ import { useMediaQuery, useTheme } from "@material-ui/core";
 import { imageSlider } from "contants";
 import { Link } from "react-router-dom";
 import { Zoom } from "react-slideshow-image";
-import { useStyles } from "styles";
+import { sliderStyles } from "styles";
 
 const zoomOutProperties = {
   duration: 5000,
@@ -14,7 +14,7 @@ const zoomOutProperties = {
 };
 
 const SliderBanner = () => {
-  const classes = useStyles();
+  const classes = sliderStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 

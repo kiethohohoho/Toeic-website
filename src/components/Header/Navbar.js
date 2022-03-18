@@ -1,60 +1,25 @@
-import React from "react";
 import {
   AppBar,
-  Toolbar,
   CssBaseline,
+  Toolbar,
   Typography,
-  makeStyles,
-  useTheme,
   useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
-import { Link, Outlet } from "react-router-dom";
+import React from "react";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import { headerStyles } from "styles";
 import DrawerComponent from "./Drawer";
 
-const useStyles = makeStyles((theme) => ({
-  navlinks: {
-    marginLeft: theme.spacing(5),
-    display: "flex",
-    fontFamily: "'Montserrat', sans-serif",
-  },
-  navBackground: {
-    backgroundColor: "#fff",
-    boxShadow: "0 4px 12px 0 rgb(0 0 0 / 5%)",
-    color: theme.palette.info.main,
-  },
-  logo: {
-    flexGrow: "1",
-    cursor: "pointer",
-    fontFamily: "'Montserrat', sans-serif",
-    fontWeight: 900,
-    [theme.breakpoints.down("sm")]: {
-      fontSize: 25,
-      textAlign: "center",
-    },
-  },
-  link: {
-    textDecoration: "none",
-    fontSize: "20px",
-    marginLeft: theme.spacing(7),
-    color: "#333 !important",
-    backgroundColor: "#e8ebed",
-    padding: 10,
-    borderRadius: 16,
-    overFlow: "hidden",
-
-    "&:hover": {
-      color: theme.palette.info.main,
-    },
-  },
-}));
+import "./Narbar.scss";
 
 function Navbar() {
-  const classes = useStyles();
+  const classes = headerStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <>
+    <div>
       <AppBar position="static" className={classes.navBackground}>
         <CssBaseline />
         <Toolbar>
@@ -64,28 +29,19 @@ function Navbar() {
           {isMobile ? (
             <DrawerComponent />
           ) : (
-            <div className={classes.navlinks}>
-              <Link to="/" className={classes.link}>
-                Home
-              </Link>
-              <Link to="/courses" className={classes.link}>
-                Courses
-              </Link>
-              <Link to="/login" className={classes.link}>
-                Log In
-              </Link>
-              <Link to="/register" className={classes.link}>
-                Register
-              </Link>
-              <Link to="/faq" className={classes.link}>
-                FAQ
+            <div className="menuNav">
+              <NavLink to="/">Trang chủ</NavLink>
+              <NavLink to="/courses">Các khoá học</NavLink>
+              <NavLink to="/reviews">Đánh giá</NavLink>
+              <Link className="btn" to="/login">
+                Đăng nhập
               </Link>
             </div>
           )}
         </Toolbar>
       </AppBar>
       <Outlet />
-    </>
+    </div>
   );
 }
 export default Navbar;
