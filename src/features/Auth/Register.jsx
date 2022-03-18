@@ -12,7 +12,7 @@ import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import accountApi from "apis/accountApi";
-import { checkEmail } from "components/common/customComponents";
+import { checkEmail } from "components/common";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -37,9 +37,9 @@ function Register() {
       });
     } catch (error) {
       console.log("lỗi rồi", { error });
-      toast.warning(`${error.response.data.message}`, {
-        position: "bottom-right",
-      });
+      // toast.warning(`${error.response.data.message}`, {
+      //   position: "bottom-right",
+      // });
     }
   };
   const handleSubmit = (e) => {
@@ -93,6 +93,7 @@ function Register() {
         <Box component="form" sx={{ mt: 1 }} onSubmit={handleSubmit}>
           <Grid container spacing={2} width={{ lg: 800 }}>
             <Grid container item lg={6} sm={12} direction="column">
+              {/* nhập địa chỉ email */}
               <TextField
                 margin="normal"
                 required
@@ -104,6 +105,7 @@ function Register() {
                 // error
                 // helperText="Hãy nhập email"
               />
+              {/* mã xác nhận email */}
               <TextField
                 margin="normal"
                 required
@@ -124,6 +126,7 @@ function Register() {
                 }}
               />
 
+              {/* nhập mật khẩu */}
               <TextField
                 margin="normal"
                 required
@@ -132,14 +135,15 @@ function Register() {
                 label="Nhập mật khẩu"
                 type="password"
               />
-              {/* <TextField
+              {/* xác nhận mật khẩu */}
+              <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="passwordComfirm"
                 label="Nhập lại mật khẩu"
                 type="password"
-              /> */}
+              />
             </Grid>
             <Grid container item lg={6} sm={12} direction="column">
               <TextField
