@@ -5,7 +5,7 @@ const authSlice = createSlice({
   initialState: {
     isLoading: false,
     isAuth: false,
-    isRole: "admin",
+    isRole: null,
   },
   reducers: {
     isPending(state) {
