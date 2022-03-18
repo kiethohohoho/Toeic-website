@@ -266,9 +266,9 @@ strong {
               color: #666;
               padding-left: 10px;
               font-size: 1rem;
-              span {
-                margin-left: 8px;
-              }
+              display: flex;
+              align-items: center;
+              gap: 8px;
             }
           }
         }
@@ -284,9 +284,12 @@ a {
 .Courses_wrapper {
   font-family: "Montserrat";
   flex: 1 1;
-  max-width: 100%;
   max-width: calc(100% - 96px);
   padding: 0 40px 0 20px;
+  @media (min-width: 0px) and (max-width: 739px) {
+    padding: 0 16px;
+    max-width: 100%;
+  }
   .p0_m0auto {
     padding: 0;
     margin: 0 auto;
@@ -295,8 +298,15 @@ a {
     width: 100%;
     .Courses_container {
       padding: 8px 44px 0;
+      @media (min-width: 0) and (max-width: 1023px) {
+        padding: 0;
+      }
       .Courses_container-top {
         margin-bottom: 30px;
+        @media (min-width: 0) and (max-width: 1023px) {
+          margin-top: 10px;
+          // margin-bottom: 10px;
+        }
         .Courses_heading {
           font-weight: 900;
           font-size: 2rem;
@@ -307,6 +317,9 @@ a {
           word-wrap: break-word;
           line-height: 1.6;
           font-size: 1.4rem;
+          @media (min-width: 0) and (max-width: 739px) {
+            font-size: 1rem;
+          }
         }
         .Courses_desc {
           max-width: 840px;
@@ -319,34 +332,39 @@ a {
               display: flex;
               align-items: baseline;
               .ScrollList_heading {
-                margin-right: auto;
-                margin-top: 16px;
                 color: #242424;
                 font-size: 1.8rem;
                 font-weight: 500;
+                @media (min-width: 0) and (max-width: 739px) {
+                  font-size: 1.4rem;
+                }
               }
             }
           }
           .ScrollList_body {
             min-height: 200px;
             padding-bottom: 0;
+            @media (min-width: 0) and (max-width: 739px) {
+              min-height: 180px;
+            }
             .section_row {
-              @media (min-width: 1113px) {
-                margin-left: -12px;
-                margin-right: -12px;
-              }
-              @media (min-width: 740px) {
-                margin-left: -8px;
-                margin-right: -8px;
-              }
               display: flex;
               flex-wrap: wrap;
               margin-left: -4px;
               margin-right: -4px;
+              @media (min-width: 740px) {
+                margin-left: -8px;
+                margin-right: -8px;
+              }
+              @media (min-width: 1113px) {
+                margin-left: -12px;
+                margin-right: -12px;
+              }
               .section_l-3 {
                 @media (min-width: 1113px) {
                   width: 22%;
                 }
+                margin-bottom: 30px;
               }
               .section_col {
                 @media (min-width: 1113px) {

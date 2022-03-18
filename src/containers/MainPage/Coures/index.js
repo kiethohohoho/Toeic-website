@@ -1,12 +1,35 @@
 import { Link } from "react-router-dom";
+import GroupsIcon from "@mui/icons-material/Groups";
+// import { courses } from "data/Courses";
+import coursesApi from "../../../apis/coursesApi";
+import { useEffect, useState } from "react";
+import { courses } from "data/Courses";
+
+const getCourses = async () => {
+  try {
+    const response = await coursesApi.getCourses();
+    return response.courses;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const Course = () => {
+  const [courses, setCourses] = useState([]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(async () => {
+    const data = await getCourses();
+    setCourses(data);
+  }, []);
+  useEffect(() => {
+    console.log(courses);
+  });
   return (
     <div id="Course">
       <div className="Above">
         <div className="SectionList_headingWrap">
           <h2 className="SectionList_heading">Các khóa học</h2>
-          <Link to="#" className="SectionList_viewAll">
+          <Link to="/courses" className="SectionList_viewAll">
             Xem tất cả
             <svg
               aria-hidden="true"
@@ -28,265 +51,40 @@ const Course = () => {
       </div>
       <div className="Under">
         <div className="SectionList_body">
-          <div className="Home_courseItem">
-            <div className="CourseItem_wrapper">
-              <Link to="#">
-                <div
-                  className="CourseItem_thumb"
-                  title="Kiến Thức Nhập Môn IT"
-                  style={{
-                    backgroundImage:
-                      "url(https://cdn.fullstack.edu.vn/f8-production/courses/7.png)",
-                  }}
-                ></div>
-              </Link>
-              <h3 className="CourseItem_title">
-                <Link to="#">Kiến Thức Nhập Môn IT</Link>
-              </h3>
-              <div>
-                <div className="CourseItem_studentsCount">
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="users"
-                    className="svg-inline--fa fa-users fa-w-20 "
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"
-                    ></path>
-                  </svg>
-                  <span>50.959</span>
+          {courses.length &&
+            courses.map((val) => (
+              <div className="Home_courseItem">
+                <div className="CourseItem_wrapper">
+                  <Link to={`/courses/${val._id}`}>
+                    {/* <div
+                      className="CourseItem_thumb"
+                      title="Kiến Thức Nhập Môn IT"
+                      // style={{
+                      //   backgroundImage: `url(https://webtoeic.herokuapp.com//${val.thumbnail})`,
+                      // }}
+                    ></div> */}
+                    <img
+                      src={`https://webtoeic.herokuapp.com${val.thumbnail}`}
+                      alt="aa"
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        borderRadius: 12,
+                      }}
+                    />
+                  </Link>
+                  <h3 className="CourseItem_title">
+                    <Link to={`/courses/${val._id}`}>{val.name}</Link>
+                  </h3>
+                  <div>
+                    <div className="CourseItem_studentsCount">
+                      <GroupsIcon />
+                      <span>{val.sellNumber}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="Home_courseItem">
-            <div className="CourseItem_wrapper">
-              <Link to="#">
-                <div
-                  className="CourseItem_thumb"
-                  title="Xây Dựng Website với ReactJS"
-                  style={{
-                    backgroundImage:
-                      "url(https://cdn.fullstack.edu.vn/f8-production/courses/13/13.png)",
-                  }}
-                ></div>
-              </Link>
-              <h3 className="CourseItem_title">
-                <Link to="#">Xây Dựng Website với ReactJS</Link>
-              </h3>
-              <div>
-                <div className="CourseItem_studentsCount">
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="users"
-                    className="svg-inline--fa fa-users fa-w-20 "
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"
-                    ></path>
-                  </svg>
-                  <span>16.945</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="Home_courseItem">
-            <div className="CourseItem_wrapper">
-              <Link to="#">
-                <div
-                  className="CourseItem_thumb"
-                  title="HTML, CSS từ Zero đến Hero"
-                  style={{
-                    backgroundImage:
-                      "url(https://cdn.fullstack.edu.vn/f8-production/courses/2.png)",
-                  }}
-                ></div>
-              </Link>
-              <h3 className="CourseItem_title">
-                <Link to="#">HTML, CSS từ Zero đến Hero</Link>
-              </h3>
-              <div>
-                <div className="CourseItem_studentsCount">
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="users"
-                    className="svg-inline--fa fa-users fa-w-20 "
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"
-                    ></path>
-                  </svg>
-                  <span>121.438</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="Home_courseItem">
-            <div className="CourseItem_wrapper">
-              <Link to="#">
-                <div
-                  className="CourseItem_thumb"
-                  title="Responsive Với Grid System"
-                  style={{
-                    backgroundImage:
-                      "url(https://cdn.fullstack.edu.vn/f8-production/courses/3.png)",
-                  }}
-                ></div>
-              </Link>
-              <h3 className="CourseItem_title">
-                <Link to="#">Responsive Với Grid System</Link>
-              </h3>
-              <div>
-                <div className="CourseItem_studentsCount">
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="users"
-                    className="svg-inline--fa fa-users fa-w-20 "
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"
-                    ></path>
-                  </svg>
-                  <span>18.813</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="Home_courseItem">
-            <div className="CourseItem_wrapper">
-              <Link to="#">
-                <div
-                  className="CourseItem_thumb"
-                  title="JavaScript Cơ Bản"
-                  style={{
-                    backgroundImage:
-                      "url(https://cdn.fullstack.edu.vn/f8-production/courses/1.png)",
-                  }}
-                ></div>
-              </Link>
-              <h3 className="CourseItem_title">
-                <Link to="#">JavaScript Cơ Bản</Link>
-              </h3>
-              <div>
-                <div className="CourseItem_studentsCount">
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="users"
-                    className="svg-inline--fa fa-users fa-w-20 "
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"
-                    ></path>
-                  </svg>
-                  <span>71.219</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="Home_courseItem">
-            <div className="CourseItem_wrapper">
-              <Link to="#">
-                <div
-                  className="CourseItem_thumb"
-                  title="JavaScript Nâng Cao"
-                  style={{
-                    backgroundImage:
-                      "url(https://cdn.fullstack.edu.vn/f8-production/courses/12.png)",
-                  }}
-                ></div>
-              </Link>
-              <h3 className="CourseItem_title">
-                <Link to="#">JavaScript Nâng Cao</Link>
-              </h3>
-              <div>
-                <div className="CourseItem_studentsCount">
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="users"
-                    className="svg-inline--fa fa-users fa-w-20 "
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"
-                    ></path>
-                  </svg>
-                  <span>11.000</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="Home_courseItem">
-            <div className="CourseItem_wrapper">
-              <Link to="#">
-                <div
-                  className="CourseItem_thumb"
-                  title="Node ExpressJS"
-                  style={{
-                    backgroundImage:
-                      "url(https://cdn.fullstack.edu.vn/f8-production/courses/6.png)",
-                  }}
-                ></div>
-              </Link>
-              <h3 className="CourseItem_title">
-                <Link to="#">Node ExpressJS</Link>
-              </h3>
-              <div>
-                <div className="CourseItem_studentsCount">
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="users"
-                    className="svg-inline--fa fa-users fa-w-20 "
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"
-                    ></path>
-                  </svg>
-                  <span>16.510</span>
-                </div>
-              </div>
-            </div>
-          </div>
+            ))}
         </div>
       </div>
     </div>
