@@ -3,6 +3,9 @@ import AdminProfile from "features/Admin/AdminProfile";
 import ForgotPassword from "features/Auth/ForgotPassword";
 import Login from "features/Auth/Login";
 import Register from "features/Auth/Register";
+import Contact from "features/MainPage/Contact";
+import Course from "features/MainPage/Coures";
+import CourseDetail from "features/MainPage/Coures/CourseDetail";
 import HomePage from "features/MainPage/HomePage";
 import NotFound from "features/MainPage/NotFound";
 import Student from "features/Student/Student";
@@ -15,6 +18,22 @@ const MAIN_ROUTE = [
     path: "/",
     element: <HomePage />,
   },
+  {
+    role: "page",
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    role: "page",
+    path: "/courses",
+    element: <Course />,
+  },
+  {
+    role: "page",
+    path: "/courses/:id",
+    element: <CourseDetail />,
+  },
+
   { role: "page", path: "/*", element: <NotFound /> },
 ];
 

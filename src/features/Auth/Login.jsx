@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import authApi from "apis/authApi";
+import LayoutMainPage from "components/LayoutMainPage";
 
 function Login() {
   //false --> keepLogin, true --> refresh token
@@ -42,65 +43,67 @@ function Login() {
     }
   };
   return (
-    <Container component="main" maxWidth="xs">
-      <Box
-        sx={{
-          marginTop: 4,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Avatar sx={{ bgcolor: "primary.main" }}>
-          <AccountCircleOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Đăng nhập
-        </Typography>
-        <Box component="form" onSubmit={handleSubmit}>
-          <Grid container sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="email"
-              label="Nhập địa chỉ email"
-              type="email"
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Nhập mật khẩu"
-              type="password"
-            />
-            <FormControlLabel
-              control={<Checkbox onChange={() => setKeepLogin(!keepLogin)} />}
-              label="Duy trì đăng nhập"
-            />
-            <Button type="submit" variant="contained" fullWidth>
-              Đăng nhập
-            </Button>
-            <Grid
-              container
-              item
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                marginTop: "10px",
-              }}
-            >
-              <Link to="/register">Chưa có tài khoản, đăng ký?</Link>
-              <Link to="/forgot_password">Quên mật khẩu?</Link>
+    <LayoutMainPage>
+      <Container component="main" maxWidth="xs">
+        <Box
+          sx={{
+            marginTop: 4,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Avatar sx={{ bgcolor: "primary.main" }}>
+            <AccountCircleOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Đăng nhập
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit}>
+            <Grid container sx={{ mt: 1 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="email"
+                label="Nhập địa chỉ email"
+                type="email"
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Nhập mật khẩu"
+                type="password"
+              />
+              <FormControlLabel
+                control={<Checkbox onChange={() => setKeepLogin(!keepLogin)} />}
+                label="Duy trì đăng nhập"
+              />
+              <Button type="submit" variant="contained" fullWidth>
+                Đăng nhập
+              </Button>
+              <Grid
+                container
+                item
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginTop: "10px",
+                }}
+              >
+                <Link to="/register">Chưa có tài khoản, đăng ký?</Link>
+                <Link to="/forgot_password">Quên mật khẩu?</Link>
+              </Grid>
             </Grid>
-          </Grid>
+          </Box>
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </LayoutMainPage>
   );
 }
 

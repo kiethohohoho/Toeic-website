@@ -9,7 +9,9 @@ const LayoutMainPage = ({ children }) => {
       <Container type="wide">
         <Navbar />
       </Container>
-      <div>{children}</div>
+
+      {/* component children render in here */}
+      {children}
     </React.Fragment>
   );
 };
