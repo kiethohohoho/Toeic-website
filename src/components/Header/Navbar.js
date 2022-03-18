@@ -1,6 +1,5 @@
 import {
   AppBar,
-  CssBaseline,
   Toolbar,
   Typography,
   useMediaQuery,
@@ -8,22 +7,19 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { headerStyles } from "styles";
 import DrawerComponent from "./Drawer";
-
 import "./Narbar.scss";
 
 function Navbar() {
-  const classes = headerStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <div>
-      <AppBar position="static" className={classes.navBackground}>
-        <CssBaseline />
-        <Toolbar>
-          <Typography variant="h4" className={classes.logo}>
+      <AppBar position="static" className="navbar">
+        {/* <CssBaseline /> */}
+        <Toolbar className="navbarHeader">
+          <Typography variant="h4" className="navbarLogo">
             Hoàng Toeic
           </Typography>
           {isMobile ? (
