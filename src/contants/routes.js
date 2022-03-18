@@ -1,42 +1,40 @@
-import ForgotPassword from "containers/Auth/ForgotPassword";
-import Login from "containers/Auth/Login";
-import Register from "containers/Auth/Register";
-import HomePage from "containers/MainPage/HomePage";
-import NotFound from "containers/MainPage/NotFound";
-import Courses from "containers/CoursesPage";
-import Course from "containers/Course";
+import Admin from "features/Admin/Admin";
+import AdminProfile from "features/Admin/AdminProfile";
+import ForgotPassword from "features/Auth/ForgotPassword";
+import Login from "features/Auth/Login";
+import Register from "features/Auth/Register";
+import HomePage from "features/MainPage/HomePage";
+import NotFound from "features/MainPage/NotFound";
+import Student from "features/Student/Student";
+import StudentProfile from "features/Student/StudentProfile";
 
-export const SIMPLE_PAGES = [
+// main route
+const MAIN_ROUTE = [
   {
-    path: "",
+    role: "page",
+    path: "/",
     element: <HomePage />,
   },
-  {
-    path: "login",
-    element: <Login />,
-  },
-  {
-    path: "register",
-    element: <Register />,
-  },
-  {
-    path: "forgot_password",
-    element: <ForgotPassword />,
-  },
-  {
-    path: "courses",
-    element: <Courses />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
+  { role: "page", path: "/*", element: <NotFound /> },
 ];
 
-export const PARAM_PAGES = [
-  {
-    param: "course",
-    current: "courses",
-    element: <Course />,
-  },
+//auth route
+const AUTH_ROUTE = [
+  { role: "auth", path: "/login", element: <Login /> },
+  { role: "auth", path: "/register", element: <Register /> },
+  { role: "auth", path: "/forgot_password", element: <ForgotPassword /> },
 ];
+
+// admin route
+const ADMIN_ROUTE = [
+  { role: "admin", path: "/admin", element: <Admin /> },
+  { role: "admin", path: "/admin/profile", element: <AdminProfile /> },
+];
+
+// Student route
+const STUDENT_ROUTE = [
+  { role: "user", path: "/student", element: <Student /> },
+  { role: "user", path: "/student/profile", element: <StudentProfile /> },
+];
+
+export { MAIN_ROUTE, AUTH_ROUTE, ADMIN_ROUTE, STUDENT_ROUTE };

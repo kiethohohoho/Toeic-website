@@ -6,10 +6,14 @@ import ReactDOM from "react-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import "./index.scss";
+// import "./index.scss";
+import { Provider } from "react-redux";
+import store from "reducers/store";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
     <ToastContainer />
   </React.StrictMode>,
   document.getElementById("root")

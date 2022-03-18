@@ -56,13 +56,6 @@ const Course = () => {
               <div className="Home_courseItem">
                 <div className="CourseItem_wrapper">
                   <Link to={`/courses/${val._id}`}>
-                    {/* <div
-                      className="CourseItem_thumb"
-                      title="Kiến Thức Nhập Môn IT"
-                      // style={{
-                      //   backgroundImage: `url(https://webtoeic.herokuapp.com//${val.thumbnail})`,
-                      // }}
-                    ></div> */}
                     <img
                       src={`https://webtoeic.herokuapp.com${val.thumbnail}`}
                       alt="aa"

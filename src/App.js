@@ -1,25 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "containers/MainPage/Header/Navbar";
-import { SIMPLE_PAGES, PARAM_PAGES } from "contants/routes";
-import { renderRoutes, renderParamRoutes } from "components/common/customRoute";
-import courseApi from "apis/courseApi";
+import {
+  ADMIN_ROUTE,
+  AUTH_ROUTE,
+  MAIN_ROUTE,
+  STUDENT_ROUTE,
+} from "contants/routes";
+import { BrowserRouter, Routes } from "react-router-dom";
+import { authRoute, mainRoute, privateRoute } from "routes";
 function App() {
-  const getApiCourse = async () => {
-    try {
-      const reponse = await courseApi.getAllCourse();
-      console.log(reponse);
-    } catch (error) {
-      console.log("lỗi r", { error });
-    }
-  };
-  getApiCourse();
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navbar />}>
-          {renderRoutes(SIMPLE_PAGES)}
-          {renderParamRoutes(PARAM_PAGES)}
-        </Route>
+        {mainRoute(MAIN_ROUTE)}
+        {authRoute(AUTH_ROUTE)}
+        {privateRoute(ADMIN_ROUTE)}
+        {privateRoute(STUDENT_ROUTE)}
       </Routes>
     </BrowserRouter>
   );
