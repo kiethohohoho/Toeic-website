@@ -1,13 +1,13 @@
 import React from "react";
+import "./ContactItem.scss";
 
 const ContactItem = ({ contact }) => {
   const { info } = contact;
-  console.log(info);
   const renderInfoContent = (infos) => {
     return (
       infos.length > 0 &&
       infos.map((info, index) => (
-        <span className="contentInfo">
+        <span key={index} className="contentInfo">
           <a href={info.infoHref} target="_blank" rel="noreferrer noopener">
             {info.infoContent}
           </a>

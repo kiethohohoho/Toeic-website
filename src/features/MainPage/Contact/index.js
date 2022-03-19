@@ -8,7 +8,9 @@ function Contact() {
   const renderInfoContacts = (contacts) => {
     return (
       contacts.length &&
-      contacts.map((contact, index) => <ContactItem contact={contact} />)
+      contacts.map((contact, index) => (
+        <ContactItem key={index} contact={contact} />
+      ))
     );
   };
 

@@ -1,0 +1,31 @@
+.contact {
+  &-item {
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    background: #f1efef;
+
+    gap: 8px;
+    .icon {
+    }
+  }
+  &-info {
+    gap: 8px;
+
+    .titleInfo {
+      color: black;
+      font-weight: 600;
+    }
+    div {
+      .contentInfo {
+        a {
+          color: rgb(78, 66, 66);
+          font-size: 16px;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

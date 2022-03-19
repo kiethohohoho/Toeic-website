@@ -1,0 +1,23 @@
+.courseItem {
+  max-width: 300px;
+
+  //   for logo here
+  a {
+    img {
+      border-radius: 12px;
+    }
+  }
+  //   for content
+  &_content {
+    margin-left: 10px;
+    gap: 2px;
+    .title {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .quantity {
+      gap: 8px;
+    }
+  }
+}
