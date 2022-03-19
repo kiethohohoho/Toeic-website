@@ -7,6 +7,9 @@ export const checkEmail = (email) => {
   if (reg.test(email)) return true;
 };
 
+//locale number
+export const localeNumber = (number) => number.toLocaleString();
+
 // custom route
 export const renderRoutes = (routes) => {
   return routes.map((route) => {

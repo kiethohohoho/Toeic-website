@@ -27,7 +27,6 @@ const Course = () => {
 
       //handle show more
       const newLimit = limit + 4;
-      console.log(newLimit);
       setLimit(newLimit);
     } catch (error) {
       console.log("lỗi rồi", error);
@@ -51,12 +50,12 @@ const Course = () => {
   return (
     <LayoutMainPage>
       <Container type="normal">
-        <div className="courses flex-col-gap-4">
+        <div className="courses flex-col-gap-6">
           <div className="title flex-row-between">
             <h2>Danh sách các khóa học</h2>
             <span onClick={() => handleShowMore()}>Xem thêm</span>
           </div>
-          <div className="courseList flex-row-gap-4">
+          <div className="courseList flex-row-gap-6">
             {renderCourses(courses)}
           </div>
         </div>

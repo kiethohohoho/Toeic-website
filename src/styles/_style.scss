@@ -43,10 +43,22 @@
   align-items: center;
   gap: 16px;
 }
+.flex-row-gap-6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
 .flex-col-gap-4 {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.flex-col-gap-6 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 //margin, padding custom

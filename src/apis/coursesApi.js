@@ -7,6 +7,10 @@ const coursesApi = {
     const url = COURSES_API;
     return axiosClient.get(url, { params: params });
   },
+  getCoursesId: (id) => {
+    const url = COURSES_API + `/${id}`;
+    return axiosClient.get(url);
+  },
 };
 
 export default coursesApi;

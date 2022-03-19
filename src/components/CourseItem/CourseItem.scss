@@ -1,23 +1,67 @@
 .courseItem {
   max-width: 300px;
+  gap: 12px;
 
   //   for logo here
   a {
+    position: relative;
     img {
       border-radius: 12px;
+    }
+    span {
+      position: absolute;
+      top: -14px;
+      left: 260px;
+
+      padding: 4px 0;
+      width: 50px;
+      text-align: center;
+
+      border-radius: 18px;
+      background: red;
+      color: white;
+      font-weight: 600;
     }
   }
   //   for content
   &_content {
     margin-left: 4px;
-    gap: 2px;
+    gap: 6px;
     .title {
+      // word overflow eclipse
+      overflow: hidden;
+      text-overflow: ellipsis;
       &:hover {
         text-decoration: underline;
       }
+      a {
+        color: rgb(197, 58, 4);
+        white-space: nowrap;
+      }
     }
     .quantity {
-      gap: 8px;
+      gap: 10px;
+    }
+    .author {
+      gap: 40px;
+    }
+    .rating {
+      gap: 16px;
+    }
+    .price {
+      gap: 12px;
+      &-current {
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(197, 58, 4);
+      }
+      &-original {
+        align-items: center;
+
+        font-size: 14px;
+        text-decoration: line-through;
+        color: rgb(182, 150, 150);
+      }
     }
   }
 }
