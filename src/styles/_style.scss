@@ -77,3 +77,9 @@
 .my-20 {
   margin: 20px 0;
 }
+
+//overflow text
+.overflow-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

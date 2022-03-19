@@ -32,16 +32,14 @@
     margin-left: 4px;
     gap: 6px;
     .title {
-      // word overflow eclipse
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-size: 16px;
-
+      // overflow: hidden;
+      // text-overflow: ellipsis;
       &:hover {
         text-decoration: underline;
       }
       a {
         color: rgb(197, 58, 4);
+        // word overflow eclipse
         white-space: nowrap;
       }
     }
