@@ -1,11 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Poppins:wght@200;300&display=swap");
-@import "react-slideshow-image/dist/styles.css";
+@import url("./_reset.scss");
+@import url("./_font.scss");
+@import url("./_library.scss");
+@import url("_style.scss");
 
 //Initial main css
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "montserrat";
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -468,15 +471,3 @@ a {
     }
   }
 }
-
-/* svg:not(:root).svg-inline--fa,
-svg:not(:host).svg-inline--fa {
-  overflow: visible;
-  box-sizing: content-box;
-}
-.svg-inline--fa {
-  display: var(--fa-display, inline-block);
-  height: 1em;
-  overflow: visible;
-  vertical-align: -0.125em;
-} */

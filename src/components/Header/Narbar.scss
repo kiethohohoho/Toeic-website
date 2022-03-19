@@ -9,20 +9,20 @@
   justify-content: space-between;
 }
 .navbarHeader {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
 }
 // for navbar logo Hoang Toeic
 .navbarLogo {
-  font-family: serif;
   font-weight: 900;
   color: #2d01f0;
+  cursor: pointer;
 }
 // for links navbar
 .menuNav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   gap: 20px;
 }
 .menuNav a {

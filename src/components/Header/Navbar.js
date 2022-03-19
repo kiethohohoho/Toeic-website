@@ -18,14 +18,14 @@ function Navbar() {
     <div>
       <AppBar position="static" className="navbar">
         {/* <CssBaseline /> */}
-        <Toolbar className="navbarHeader">
+        <Toolbar className="flex-row-between navbarHeader">
           <Typography variant="h4" className="navbarLogo">
             Hoàng Toeic
           </Typography>
           {isMobile ? (
             <DrawerComponent />
           ) : (
-            <div className="menuNav">
+            <div className="menuNav flex-row-center">
               <NavLink to="/">Trang chủ</NavLink>
               <NavLink to="/courses">Các khoá học</NavLink>
               <NavLink to="/reviews">Đánh giá</NavLink>
