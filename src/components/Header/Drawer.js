@@ -25,14 +25,14 @@ function DrawerComponent() {
     return (
       links.length &&
       links.map((link, index) => (
-        <>
-          <ListItem key={index} onClick={() => setOpenDrawer(false)}>
+        <div key={index}>
+          <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               <NavLink to={link.path}>{link.title}</NavLink>
             </ListItemText>
           </ListItem>
           <Divider />
-        </>
+        </div>
       ))
     );
   };
