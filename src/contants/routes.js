@@ -26,8 +26,13 @@ const MAIN_ROUTE = [
   },
   {
     role: "page",
-    path: "/reviews",
+    path: "/review",
     element: <Review />,
+  },
+  {
+    role: "page",
+    path: "/contact",
+    element: <Contact />,
   },
   {
     role: "page",

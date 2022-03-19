@@ -1,50 +1,49 @@
-@import url("./_reset.scss");
-@import url("./_font.scss");
-@import url("./_library.scss");
+@import url("_reset.scss");
+@import url("_font.scss");
+@import url("_library.scss");
 @import url("_style.scss");
 
 //Initial main css
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "montserrat";
+  // font-family: "montserrat";
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-a {
-  text-decoration: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-  font-size: 16px;
 
-  &:visited {
-    color: rgb(0, 0, 238);
-  }
-}
-a:focus,
-a:hover,
-a:visited {
-  text-decoration: none;
-  outline: none;
-}
-b,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong {
-  font-weight: 600;
-}
+// body {
+//   margin: 0;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+// a {
+//   text-decoration: none;
+//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+//   -webkit-tap-highlight-color: transparent;
+//   font-size: 16px;
+
+//   &:visited {
+//     color: rgb(0, 0, 238);
+//   }
+// }
+// a:focus,
+// a:hover,
+// a:visited {
+//   text-decoration: none;
+//   outline: none;
+// }
+// b,
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// strong {
+//   font-weight: 600;
+// }
 
 //Scrollbar css
 /* width */
@@ -96,78 +95,6 @@ strong {
     svg {
       width: 17px;
       height: 17px;
-    }
-  }
-}
-
-//Contact css
-#contact {
-  .contact {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 1200px;
-    margin: 0 auto;
-    .section-title {
-      font-size: 2rem;
-      font-weight: 400;
-      color: black;
-      margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.2rem;
-      text-align: center;
-      span {
-        color: crimson;
-      }
-    }
-    .contact-items {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      width: 100%;
-      @media screen and (max-width: 800px) {
-        flex-direction: column;
-      }
-      .contact-item {
-        height: 250px;
-        flex-basis: calc(100% / 5);
-        max-width: 300px;
-        text-align: center;
-        border-radius: 10px;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0px 0px 18px 0 #0000002c;
-        transition: 0.3s ease box-shadow;
-        overflow: hidden;
-        @media screen and (max-width: 800px) {
-          width: 80%;
-        }
-        &:hover {
-          box-shadow: 0px 0px 5px 0 #0000002c;
-        }
-        .icon {
-          width: 100%;
-          margin: 0 auto;
-        }
-        .contact-info {
-          h1 {
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 5px;
-          }
-          h2 {
-            font-size: 1rem;
-            line-height: 2rem;
-            font-weight: 400;
-          }
-        }
-      }
     }
   }
 }

@@ -1,0 +1,47 @@
+#contact {
+  font-family: "montserrat";
+}
+
+.contact {
+  // title
+
+  .title {
+    text-align: center;
+
+    span {
+      color: red;
+    }
+  }
+  // info contact
+  &-items {
+    max-width: 1200px;
+    flex-wrap: wrap;
+    gap: 80px;
+  }
+  &-item {
+    width: 300px;
+    height: 250px;
+    border-radius: 12px;
+    background: #f1efef;
+
+    gap: 8px;
+    .icon {
+    }
+  }
+  &-info {
+    gap: 8px;
+    span {
+      color: black;
+      opacity: 0.9;
+      &.titleInfo {
+        font-weight: 600;
+      }
+      &.contentInfo {
+        &:hover {
+          text-decoration: underline;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
