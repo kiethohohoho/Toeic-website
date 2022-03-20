@@ -11,11 +11,14 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { selectAuthorization } from "reducers/authSlice";
 import DrawerComponent from "./Drawer";
 import { isLogout } from "reducers/authSlice";
+import { useNavigate } from "react-router-dom";
 import "./Narbar.scss";
 
 function Navbar() {
   const { isAuth } = useSelector(selectAuthorization);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -23,6 +26,7 @@ function Navbar() {
   const handleLogout = () => {
     dispatch(isLogout());
     localStorage.clear();
+    navigate("/login");
   };
 
   return (
