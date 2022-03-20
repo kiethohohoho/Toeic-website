@@ -21,7 +21,7 @@ const CourseItem = ({ course }) => {
       <div>
         <div className="courseItem_content flex-col">
           {/* title */}
-          <h3 className="title">
+          <h3 className="title overflow-text">
             <Link to={`/courses/${course._id}`}>{course.name}</Link>
           </h3>
           {/* author */}

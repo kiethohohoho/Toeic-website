@@ -1,17 +1,26 @@
 .courses {
-  .title {
-    h2 {
-    }
-    span {
-      color: red;
-      cursor: pointer;
-      font: 500;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
   .courseList {
     flex-wrap: wrap;
+  }
+  .showMoreBtn {
+    gap: 20px;
+    hr {
+      width: 43%;
+      border: #f05123 0.5px solid;
+      background-color: #f05123;
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+    button {
+      padding: 6px 18px;
+      background: #f05123;
+      color: white;
+      border-radius: 100rem;
+      cursor: pointer;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
   }
 }

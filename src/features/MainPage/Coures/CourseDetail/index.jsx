@@ -13,7 +13,12 @@ const CourseDetail = () => {
 
   React.useEffect(() => {
     getCourseId();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  React.useEffect(() => {
+    console.log(chapters);
+  });
 
   const getCourseId = async () => {
     const { id } = params;
@@ -30,7 +35,7 @@ const CourseDetail = () => {
   const renderDetailInfo = (infos) => {
     return (
       infos.length &&
-      infos.map((info, index) => <CourseDetailInfo info={info} />)
+      infos.map((info, index) => <CourseDetailInfo key={index} info={info} />)
     );
   };
 
@@ -41,7 +46,7 @@ const CourseDetail = () => {
           <div>
             <h2>Thông tin khoá học</h2>
           </div>
-          <div>2</div>
+          {renderDetailInfo(courseInfo)}
         </div>
       </Container>
     </LayoutMainPage>

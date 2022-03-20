@@ -1,5 +1,5 @@
 .courseItem {
-  max-width: 300px;
+  max-width: 250px;
   gap: 12px;
 
   //   for logo here
@@ -7,15 +7,14 @@
     position: relative;
     img {
       border-radius: 12px;
-
-      height: 167px;
-      width: 300px;
+      // height: 167px;
+      // width: 300px;
     }
 
     span {
       position: absolute;
-      top: -14px;
-      left: 260px;
+      top: -5px;
+      right: -8px;
 
       padding: 4px 0;
       width: 50px;
@@ -25,6 +24,7 @@
       background: red;
       color: white;
       font-weight: 600;
+      font-size: 12px;
     }
   }
   //   for content
@@ -35,6 +35,8 @@
       // word overflow eclipse
       overflow: hidden;
       text-overflow: ellipsis;
+      font-size: 16px;
+
       &:hover {
         text-decoration: underline;
       }
@@ -47,7 +49,7 @@
       gap: 10px;
     }
     .author {
-      gap: 40px;
+      gap: 10px;
     }
     .rating {
       gap: 16px;
@@ -55,7 +57,7 @@
     .price {
       gap: 12px;
       &-current {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: bold;
         color: rgb(197, 58, 4);
       }
