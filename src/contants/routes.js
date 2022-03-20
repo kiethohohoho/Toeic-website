@@ -11,6 +11,8 @@ import NotFound from "features/MainPage/NotFound";
 import Review from "features/MainPage/Review";
 import Student from "features/Student/Student";
 import StudentProfile from "features/Student/StudentProfile";
+import Teacher from "features/Teacher/Teacher";
+import TeacherProfile from "features/Teacher/TeacherProfile";
 
 // main route
 const MAIN_ROUTE = [
@@ -63,8 +65,14 @@ const ADMIN_ROUTE = [
 
 // Student route
 const STUDENT_ROUTE = [
-  { role: "user", path: "/student", element: <Student /> },
-  { role: "user", path: "/student/profile", element: <StudentProfile /> },
+  { role: "student", path: "/student", element: <Student /> },
+  { role: "student", path: "/student/profile", element: <StudentProfile /> },
 ];
 
-export { MAIN_ROUTE, AUTH_ROUTE, ADMIN_ROUTE, STUDENT_ROUTE };
+// Teacher route
+const TEACHER_ROUTE = [
+  { role: "teacher", path: "/teacher", element: <Teacher /> },
+  { role: "teacher", path: "/teacher/profile", element: <TeacherProfile /> },
+];
+
+export { MAIN_ROUTE, AUTH_ROUTE, ADMIN_ROUTE, TEACHER_ROUTE, STUDENT_ROUTE };

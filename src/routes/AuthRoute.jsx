@@ -12,7 +12,7 @@ const AuthRoute = ({ children, roles }) => {
 
   const { isAuth, isRole } = useSelector(selectAuthorization);
 
-  // admin ?== [admin, user,??]
+  // admin ?== [admin, student,??]
   const userHasRequiredRole = roles.includes(isRole) ? true : false;
 
   if (!isAuth) {
