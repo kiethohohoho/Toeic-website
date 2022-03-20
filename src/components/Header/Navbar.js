@@ -6,15 +6,24 @@ import {
   useTheme,
 } from "@material-ui/core";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, Outlet } from "react-router-dom";
-
+import { selectAuthorization } from "reducers/authSlice";
 import DrawerComponent from "./Drawer";
-
+import { isLogout } from "reducers/authSlice";
 import "./Narbar.scss";
 
 function Navbar() {
+  const { isAuth } = useSelector(selectAuthorization);
+  const dispatch = useDispatch();
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleLogout = () => {
+    dispatch(isLogout());
+    localStorage.clear();
+  };
 
   return (
     <>
@@ -32,9 +41,15 @@ function Navbar() {
               <NavLink to="/courses">Các khoá học</NavLink>
               <NavLink to="/review">Đánh giá</NavLink>
               <NavLink to="/contact">Liên hệ</NavLink>
-              <Link className="btn" to="/login">
-                Đăng nhập
-              </Link>
+              {!isAuth ? (
+                <Link className="btn" to="/login">
+                  Đăng nhập
+                </Link>
+              ) : (
+                <button className="btn" onClick={() => handleLogout()}>
+                  Đăng xuất
+                </button>
+              )}
             </div>
           )}
         </Toolbar>

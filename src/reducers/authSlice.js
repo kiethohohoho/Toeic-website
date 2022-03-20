@@ -4,8 +4,10 @@ const authSlice = createSlice({
   name: "auth",
   initialState: {
     isLoading: false,
-    isAuth: false,
-    isRole: "admin",
+    isAuth: JSON.parse(localStorage.getItem("role")) ? true : false,
+    isRole: JSON.parse(localStorage.getItem("role"))
+      ? JSON.parse(localStorage.getItem("role"))
+      : null,
   },
   reducers: {
     isPending(state) {
@@ -29,7 +31,7 @@ const authSlice = createSlice({
 
 const { actions, reducer } = authSlice;
 
-export const { isPending, isLogin, isSuccess } = actions;
+export const { isPending, isLogin, isSuccess, isLogout } = actions;
 
 export const selectAuthorization = (state) => state.auth;
 

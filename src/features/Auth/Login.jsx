@@ -15,8 +15,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import authApi from "apis/authApi";
 import LayoutMainPage from "components/LayoutMainPage";
+import { useDispatch } from "react-redux";
+import { isLogin } from "reducers/authSlice";
 
 function Login() {
+  const dispatch = useDispatch();
   //false --> keepLogin, true --> refresh token
   const [keepLogin, setKeepLogin] = useState(true);
 
@@ -35,6 +38,16 @@ function Login() {
     try {
       const response = await authApi.postLogin(params);
       console.log(response);
+      const { accessToken, expiresIn, refreshToken, role } = response;
+
+      //save in local storage
+      localStorage.setItem("role", JSON.stringify(role));
+      localStorage.setItem("refresh-token", JSON.stringify(refreshToken));
+      localStorage.setItem("access-token", JSON.stringify(accessToken));
+      //save in state redux
+      dispatch(isLogin(role));
+      //test here
+      // console.log("admin" === JSON.parse(localStorage.getItem("role")));
     } catch (error) {
       console.log("lỗi rồi", { error });
       toast.warning(`${error.response.data.message}`, {

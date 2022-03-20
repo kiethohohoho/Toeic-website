@@ -55,7 +55,7 @@ export default function DropdownCourse({ chapter, index }) {
 
   const renderLessons = (lessons) => {
     return (
-      lessons.length &&
+      lessons.length > 0 &&
       lessons.map((lesson, index) => (
         <>
           <Divider />

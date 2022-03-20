@@ -22,41 +22,38 @@ function Register() {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
+  // check email
   const sendVerify = () => {
     if (!checkEmail(email)) {
-      toast.warning("Hãy nhập đúng email", { position: "bottom-right" });
-    } else {
-      postEmailVerify(email);
+      return toast.warning("Hãy nhập đúng email", { position: "bottom-right" });
     }
+    postEmailVerify(email);
   };
+  // verify email
   const postEmailVerify = async (email) => {
-    const params = { email: email };
+    console.log("đang xác thực email");
+    const params = { email };
     try {
       await accountApi.postVerifyEmailRegister(params);
-      toast.success("Gửi mã xác nhận thành công, hãy kiểm tra email", {
+      return toast.success("Gửi mã xác nhận thành công, hãy kiểm tra email", {
         position: "bottom-right",
       });
     } catch (error) {
       console.log("lỗi rồi", { error });
-      // toast.warning(`${error.response.data.message}`, {
-      //   position: "bottom-right",
-      // });
+      toast.warning(`${error.response.data.message}`, {
+        position: "bottom-right",
+      });
     }
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { email, verifyCode, password, fullName, birthday, gender, phone } =
-      e.target;
 
-    const info = {
-      email: email.value,
-      verifyCode: verifyCode.value.trim(),
-      password: password.value,
-      fullName: fullName.value,
-      birthday: birthday.value,
-      gender: gender.value,
-      phone: phone.value,
-    };
+  // check password
+  const checkPassword = (info) => {
+    const { password, passwordConfirm } = info;
+    if (password !== passwordConfirm)
+      return toast.warning("Mật khẩu xác nhận không chính xác", {
+        position: "bottom-right",
+      });
+    //post register
     postRegister(info);
   };
 
@@ -74,6 +71,35 @@ function Register() {
       });
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const {
+      email,
+      verifyCode,
+      password,
+      passwordConfirm,
+      fullName,
+      birthday,
+      gender,
+      phone,
+    } = e.target;
+
+    const info = {
+      email: email.value,
+      verifyCode: verifyCode.value.trim(),
+      password: password.value,
+      passwordConfirm: passwordConfirm.value,
+      fullName: fullName.value,
+      birthday: birthday.value,
+      gender: gender.value,
+      phone: phone.value,
+    };
+
+    // check password
+    checkPassword(info);
+  };
+
   return (
     <LayoutMainPage>
       <Container component="main" maxWidth="xs">
@@ -142,7 +168,7 @@ function Register() {
                   margin="normal"
                   required
                   fullWidth
-                  name="passwordComfirm"
+                  name="passwordConfirm"
                   label="Nhập lại mật khẩu"
                   type="password"
                 />
