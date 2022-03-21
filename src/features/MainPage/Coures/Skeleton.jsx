@@ -8,8 +8,8 @@ export default function CoursesSkeleton() {
       <Skeleton
         className="flex-col"
         variant="rectangular"
-        width={300}
-        height={167}
+        width={280}
+        height={150}
         animation="wave"
         sx={{ borderRadius: 3 }}
       />

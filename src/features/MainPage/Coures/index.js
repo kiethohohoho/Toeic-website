@@ -58,10 +58,10 @@ const Course = () => {
     <LayoutMainPage>
       <Container type="normal">
         <div className="courses flex-col-gap-6">
-          <div className="title">
+          <div className="headingTitle">
             <h2>Danh sách các khóa học</h2>
           </div>
-          <div className="courseList flex-row-gap-6">
+          <div className="courseList flex-row-center">
             {renderCourses(courses)}
           </div>
           <div className="showMoreBtn flex-row-center">

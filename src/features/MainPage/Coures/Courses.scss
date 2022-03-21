@@ -1,11 +1,15 @@
 .courses {
+  .headingTitle {
+    margin: 0 auto;
+  }
   .courseList {
     flex-wrap: wrap;
+    gap: 35px;
   }
   .showMoreBtn {
     gap: 20px;
     hr {
-      width: 43%;
+      width: 42%;
       border: #f05123 0.5px solid;
       background-color: #f05123;
       @media (max-width: 768px) {
