@@ -1,7 +1,12 @@
+import LayoutMainPage from "components/LayoutMainPage";
 import React from "react";
 
 function NotFound() {
-  return <div>Khong co trang nay</div>;
+  return (
+    <LayoutMainPage>
+      <div>Khong co trang nay</div>
+    </LayoutMainPage>
+  );
 }
 
 export default NotFound;

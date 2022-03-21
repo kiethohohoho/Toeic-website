@@ -22,7 +22,6 @@ const Course = () => {
     const params = { page, limit };
     try {
       const response = await coursesApi.getCourses(params);
-      console.log(response);
       setLoading(false);
       const { courses } = response;
       setCourses(courses);
