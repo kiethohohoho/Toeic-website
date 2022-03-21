@@ -10,11 +10,14 @@ const CourseItem = ({ course }) => {
   return (
     <div className="courseItem flex-col">
       {/* img */}
-      <Link to={`/courses/${course._id}`}>
+      <Link to={`/courses/${course._id}`} title={course.name}>
         <img
           src={`https://webtoeic.herokuapp.com${course.thumbnail}`}
           alt="thumbnail course"
         />
+        <div class="middle">
+          <div class="text">Xem chi tiết</div>
+        </div>
         {course.saleOff !== 0 && <span>-{course.saleOff}%</span>}
       </Link>
       {/* content */}
@@ -22,18 +25,20 @@ const CourseItem = ({ course }) => {
         <div className="courseItem_content flex-col">
           {/* title */}
           <h3 className="title overflow-text">
-            <Link to={`/courses/${course._id}`}>{course.name}</Link>
+            <Link to={`/courses/${course._id}`} title={course.name}>
+              {course.name}
+            </Link>
           </h3>
           {/* author */}
           <div className="author flex-row">
-            <span>Tác giả: </span>
+            <span>Giảng viên: </span>
             <span>
               <b>{course.owner}</b>
             </span>
           </div>
 
           {/* rating */}
-          <div className="rating flex-row">
+          <div className="rating flex-row" title={`${course.rating} sao`}>
             <span>Đánh giá:</span>
             <Rating
               name="half-rating-read"
