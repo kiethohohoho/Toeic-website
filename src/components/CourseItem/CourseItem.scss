@@ -68,7 +68,6 @@
   &_content {
     max-width: 250px;
     // margin-left: 4px;
-    font-size: 12px;
     margin: 0 auto;
     gap: 6px;
     .title {
@@ -82,29 +81,30 @@
         white-space: nowrap;
       }
     }
-    .quantity {
-      gap: 10px;
-      display: flex;
-      align-items: center;
+    .ratingAndQuantity {
+      .quantity {
+        gap: 5px;
+      }
     }
     .author {
       gap: 10px;
     }
-    .rating {
-      gap: 16px;
-    }
     .price {
+      display: flex;
+      align-items: center;
       gap: 12px;
       &-current {
         font-size: 14px;
         font-weight: bold;
         color: rgb(197, 58, 4);
+        font-size: 16px;
       }
       &-original {
         align-items: center;
         font-size: 14px;
         text-decoration: line-through;
         color: rgb(182, 150, 150);
+        margin-left: auto;
       }
     }
   }

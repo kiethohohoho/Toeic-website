@@ -31,32 +31,30 @@ const CourseItem = ({ course }) => {
           </h3>
           {/* author */}
           <div className="author flex-row">
-            <span>Giảng viên: </span>
+            {/* <span>Giảng viên: </span> */}
             <span>
               <b>{course.owner}</b>
             </span>
           </div>
 
-          {/* rating */}
-          <div className="rating flex-row" title={`${course.rating} sao`}>
-            <span>Đánh giá:</span>
+          {/* rating and quantity */}
+          <div
+            className="ratingAndQuantity flex-row-between"
+            title={`${course.rating} sao`}
+          >
             <Rating
               name="half-rating-read"
-              // defaultValue={2.5}
               value={course.rating}
               precision={0.5}
               readOnly
+              title={`${course.rating} sao`}
             />
-          </div>
-
-          {/* quantity */}
-          <div className="quantity flex-row">
-            <span>
+            <div className="quantity flex-row">
               <GroupsIcon />
-            </span>
-            <span>
-              <b>{course.sellNumber}</b> người tham gia
-            </span>
+              <span>
+                <b>{course.sellNumber}</b>
+              </span>
+            </div>
           </div>
 
           {/* price */}
