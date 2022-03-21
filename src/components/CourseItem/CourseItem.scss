@@ -84,6 +84,8 @@
     }
     .quantity {
       gap: 10px;
+      display: flex;
+      align-items: center;
     }
     .author {
       gap: 10px;
