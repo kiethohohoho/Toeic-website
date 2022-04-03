@@ -1,27 +1,32 @@
+import { useState, useEffect } from "react";
 import coursesAPi from "apis/coursesApi";
-import Container from "components/Container";
-import LayoutMainPage from "components/LayoutMainPage";
-import React from "react";
 import { useParams } from "react-router-dom";
-import CourseDetailInfo from "./CourseDetailInfo";
-import DropdownCourse from "./DropdownCourse";
+import CourseTitle from "./CourseTitle";
+import CourseGains from "./CourseGains";
+import CourseLessonList from "./CourseLessonList";
+import CourseRequirements from "./CourseRequirements";
+import CoursePurchaseBadge from "./CoursePurchaseBadge";
 
 import "./CourseDetail.scss";
 
 const CourseDetail = () => {
   const params = useParams();
 
-  const [courseInfo, setCourseInfo] = React.useState([]);
-  const [chapters, setChapters] = React.useState([]);
+  const [courseInfo, setCourseInfo] = useState([]);
+  const [chapters, setChapters] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     getCourseId();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  React.useEffect(() => {
+  // useEffect(() => {
+  //   console.log(courseInfo);
+  // }, [courseInfo]);
+
+  useEffect(() => {
     console.log(chapters);
-  });
+  }, [chapters]);
 
   const getCourseId = async () => {
     const { id } = params;
@@ -35,39 +40,18 @@ const CourseDetail = () => {
     }
   };
 
-  const renderDetailInfo = (infos) => {
-    return (
-      infos.length &&
-      infos.map((info, index) => (
-        <CourseDetailInfo key={index} infoDetail={info} />
-      ))
-    );
-  };
-
-  const renderChapters = (chapters) => {
-    return (
-      chapters.length &&
-      chapters.map((chapter, index) => (
-        <DropdownCourse key={index} chapter={chapter} index={index + 1} />
-      ))
-    );
-  };
-
   return (
-    <LayoutMainPage>
-      <Container type="normal">
-        <div className="courseDetail flex-row-between">
-          <div className="flex-col-gap-4">
-            <h2>Thông tin khoá học</h2>
-            {renderDetailInfo(courseInfo)}
-          </div>
-          <div className="courseChapters flex-col-gap-4">
-            <h2>Thông tin chi tiết khoá học</h2>
-            {renderChapters(chapters)}
-          </div>
-        </div>
-      </Container>
-    </LayoutMainPage>
+    <div className="coureDetailWrapper">
+      <div className="left">
+        <CourseTitle courseInfo={courseInfo[0]} />
+        <CourseGains />
+        <CourseLessonList chapters={chapters} />
+        <CourseRequirements />
+      </div>
+      <div className="right">
+        <CoursePurchaseBadge courseInfo={courseInfo[0]} />
+      </div>
+    </div>
   );
 };
 

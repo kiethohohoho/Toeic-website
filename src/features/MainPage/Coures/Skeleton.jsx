@@ -13,9 +13,10 @@ export default function CoursesSkeleton() {
         animation="wave"
         sx={{ borderRadius: 3 }}
       />
-      <Skeleton width={130} height={25} animation="wave" />
+      <Skeleton width={100} height={25} animation="wave" />
+      <Skeleton width={150} height={25} animation="wave" />
       <Skeleton width={200} height={25} animation="wave" />
-      <Skeleton width={290} height={25} animation="wave" />
+      <Skeleton width={250} height={25} animation="wave" />
     </Stack>
   );
 }

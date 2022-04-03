@@ -12,11 +12,11 @@ const CourseItem = ({ course }) => {
       {/* img */}
       <Link to={`/courses/${course._id}`} title={course.name}>
         <img
-          src={`https://webtoeic.herokuapp.com${course.thumbnail}`}
+          src={`https://webtoeic1.herokuapp.com${course.thumbnail}`}
           alt="thumbnail course"
         />
-        <div class="middle">
-          <div class="text">Xem chi tiết</div>
+        <div className="middle">
+          <div className="text">Xem chi tiết</div>
         </div>
         {course.saleOff !== 0 && <span>-{course.saleOff}%</span>}
       </Link>
@@ -45,7 +45,7 @@ const CourseItem = ({ course }) => {
             <Rating
               name="half-rating-read"
               value={course.rating}
-              precision={0.5}
+              precision={0.1}
               readOnly
               title={`${course.rating} sao`}
             />
