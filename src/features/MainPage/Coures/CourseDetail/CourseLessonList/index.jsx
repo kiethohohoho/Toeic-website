@@ -11,6 +11,10 @@ export default function CourseLessonList({ chapters }) {
     return index === active ? "lessonList_content_panelHeading_active" : "";
   };
 
+  const caculateLessons = () => {
+    return chapters.reduce((total, val) => total + val.lessons.length, 0);
+  };
+
   return (
     <div className="lessonList">
       <div className="lessonList_title">
@@ -24,13 +28,11 @@ export default function CourseLessonList({ chapters }) {
             </li>
             <li className="">•</li>
             <li>
-              <strong>17</strong>&nbsp;bài học
+              <strong>{caculateLessons()}</strong>&nbsp;bài học
             </li>
             <li className="">•</li>
             <li>
-              <span>
-                Thời lượng<strong>&nbsp;07 giờ 43 phút</strong>
-              </span>
+              <span>Chúc các em đạt kết quả tốt 💪</span>
             </li>
           </ul>
         </div>
@@ -69,9 +71,6 @@ export default function CourseLessonList({ chapters }) {
                                 <div className="playLessonIcon">▶</div>
                                 <span>{`${lesson.number}. ${lesson.title}`}</span>
                               </div>
-                              <span className="lessonList_content_lessonTime">
-                                01:48
-                              </span>
                             </div>
                           ))
                         : ""}

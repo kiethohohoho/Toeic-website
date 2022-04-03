@@ -26,7 +26,7 @@ const CoursePurchaseBadge = ({ courseInfo }) => {
             backgroundImage: `url(${courseThumnail})`,
           }}
         ></div>
-        <i className="playLessonIcon">icon</i>
+        <div className="playLessonIcon">▶</div>
       </div>
       <button className="btnLearnNow">ĐĂNG KÝ HỌC</button>
       <div className="courseDetailPrice flex-row-center">
