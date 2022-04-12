@@ -14,15 +14,13 @@ const CourseDetail = () => {
 
   const [courseInfo, setCourseInfo] = useState([]);
   const [chapters, setChapters] = useState([]);
+  //set panel dropdown
+  const [panel, setPanel] = useState("");
 
   useEffect(() => {
     getCourseId();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // useEffect(() => {
-  //   console.log(courseInfo);
-  // }, [courseInfo]);
 
   useEffect(() => {
     console.log(chapters);
@@ -40,12 +38,36 @@ const CourseDetail = () => {
     }
   };
 
+  const renderChapters = (chapters) => {
+    return (
+      chapters.length > 0 &&
+      chapters.map((chapter, index) => (
+        <CourseLessonList
+          key={index}
+          index={index + 1}
+          chapter={chapter}
+          onPanelActive={handlePanel}
+          panelActive={panel}
+        />
+      ))
+    );
+  };
+
+  const handlePanel = (panel) => {
+    console.log("dsasdasd", panel);
+    setPanel(panel);
+  };
+
   return (
     <div className="coureDetailWrapper">
       <div className="left">
         <CourseTitle courseInfo={courseInfo[0]} />
         <CourseGains />
-        <CourseLessonList chapters={chapters} />
+        {/* course info */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          <h2>Nội dung khoá học</h2>
+          <div>{renderChapters(chapters)}</div>
+        </div>
         <CourseRequirements />
       </div>
       <div className="right">

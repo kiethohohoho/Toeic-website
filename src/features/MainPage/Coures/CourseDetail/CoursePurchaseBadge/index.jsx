@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { localeNumber } from "components/common";
 import Rating from "@mui/material/Rating";
+import { localeNumber } from "components/common";
 
 const CoursePurchaseBadge = ({ courseInfo }) => {
   const originalPrice = courseInfo
@@ -31,9 +30,11 @@ const CoursePurchaseBadge = ({ courseInfo }) => {
       <button className="btnLearnNow">ĐĂNG KÝ HỌC</button>
       <div className="courseDetailPrice flex-row-center">
         <h5>{currentPrice}</h5>
-        <p className="CourseDetail_textContent text-line-through">
-          {originalPrice}
-        </p>
+        {currentPrice !== originalPrice && (
+          <p className="CourseDetail_textContent text-line-through">
+            {originalPrice}
+          </p>
+        )}
       </div>
       <ul>
         <li>
