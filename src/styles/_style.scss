@@ -83,3 +83,28 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+//button
+.btn {
+  padding: 6px 18px;
+  border-radius: 100rem;
+  cursor: pointer;
+}
+
+//btn color
+.danger {
+  background: #f05123 !important;
+  color: white !important;
+}
+.primary {
+  background: #007bff !important;
+  color: white !important;
+}
+.secondary {
+  background: #6c757d !important;
+  color: white !important;
+}
+.success {
+  background: #28a745 !important;
+  color: white !important;
+}

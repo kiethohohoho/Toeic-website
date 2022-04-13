@@ -9,7 +9,7 @@ const NonAuthRoute = ({ children }) => {
   const { isRole, isAuth } = useSelector(selectAuthorization);
 
   if (isAuth) {
-    return <Navigate to={`/${isRole}/profile`} state={{ from: location }} />;
+    return <Navigate to={`/${isRole}`} state={{ from: location }} />;
   }
   return children;
 };

@@ -3,6 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const authSlice = createSlice({
   name: "auth",
   initialState: {
+    // isLoading: true,
+    // isAuth: JSON.parse(localStorage.getItem("role")) ? true : true,
+    // isRole: JSON.parse(localStorage.getItem("role"))
+    //   ? JSON.parse(localStorage.getItem("role"))
+    //   : "admin",
+
     isLoading: false,
     isAuth: JSON.parse(localStorage.getItem("role")) ? true : false,
     isRole: JSON.parse(localStorage.getItem("role"))

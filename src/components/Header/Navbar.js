@@ -5,29 +5,19 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
+import Logout from "features/Auth/Logout";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { selectAuthorization } from "reducers/authSlice";
 import DrawerComponent from "./Drawer";
-import { isLogout } from "reducers/authSlice";
-import { useNavigate } from "react-router-dom";
 import "./Narbar.scss";
 
 function Navbar() {
   const { isAuth } = useSelector(selectAuthorization);
-  const dispatch = useDispatch();
-
-  const navigate = useNavigate();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
-  const handleLogout = () => {
-    dispatch(isLogout());
-    localStorage.clear();
-    navigate("/login");
-  };
 
   return (
     <>
@@ -50,9 +40,7 @@ function Navbar() {
                   Đăng nhập
                 </Link>
               ) : (
-                <button className="btn" onClick={() => handleLogout()}>
-                  Đăng xuất
-                </button>
+                <Logout />
               )}
             </div>
           )}

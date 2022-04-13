@@ -1,7 +1,8 @@
+import DashBoard from "components/DashBoard";
 import React from "react";
 
 const Admin = () => {
-  return <div>đây là trang admin</div>;
+  return <DashBoard>đây là trang admin</DashBoard>;
 };
 
 export default Admin;

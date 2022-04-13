@@ -7,9 +7,6 @@ import { selectAuthorization } from "reducers/authSlice";
 const AuthRoute = ({ children, roles }) => {
   const location = useLocation();
 
-  // const isAuth = useSelector(selectAuth);
-  // const isRole = useSelector(selectRole);
-
   const { isAuth, isRole } = useSelector(selectAuthorization);
 
   // admin ?== [admin, student,??]
