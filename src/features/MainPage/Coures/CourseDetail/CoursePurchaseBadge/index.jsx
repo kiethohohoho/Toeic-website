@@ -1,4 +1,5 @@
 import Rating from "@mui/material/Rating";
+import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
 import { localeNumber } from "components/common";
 
 const CoursePurchaseBadge = ({ courseInfo }) => {
@@ -25,7 +26,17 @@ const CoursePurchaseBadge = ({ courseInfo }) => {
             backgroundImage: `url(${courseThumnail})`,
           }}
         ></div>
-        <div className="playLessonIcon">▶</div>
+        <SlowMotionVideoIcon
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            color: "#fff",
+            fontSize: 60,
+            transform: "translate(-50%, -50%)",
+            visibility: "hidden",
+          }}
+        />
       </div>
       <button className="btnLearnNow">ĐĂNG KÝ HỌC</button>
       <div className="courseDetailPrice flex-row-center">

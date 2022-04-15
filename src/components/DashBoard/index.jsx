@@ -1,24 +1,25 @@
-import Container from "components/Container";
-import Logout from "features/Auth/Logout";
+// import Logout from "features/Auth/Logout";
 import React from "react";
+import {
+  AppContent,
+  AppSidebar,
+  AppFooter,
+  AppHeader,
+} from "./AdminComponents";
 import "./DashBoard.scss";
 
-const DashBoard = ({ menuList, children }) => {
+const DashBoard = ({ menuList }) => {
   return (
-    <Container type="wide">
-      <div className="dashBoardContainer">
-        <div className="dashBoardTitle">
-          <span>
-            Xin chào <b>sdadsadas</b>
-          </span>
-          <Logout />
+    <div>
+      <AppSidebar />
+      <div className="wrapper d-flex flex-column min-vh-100 bg-light">
+        <AppHeader />
+        <div className="body flex-grow-1 px-3">
+          <AppContent />
         </div>
-        <div className="dashBoard">
-          <div className="dashBoard_menu">dsada</div>
-          <div className="dashBoard_content">{children}</div>
-        </div>
+        <AppFooter />
       </div>
-    </Container>
+    </div>
   );
 };
 

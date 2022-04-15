@@ -264,6 +264,11 @@ button:hover {
 
       &:hover {
         cursor: pointer;
+
+        svg {
+          z-index: 2;
+          visibility: visible;
+        }
       }
 
       &::after {

@@ -10,11 +10,11 @@ import "styles/index.scss";
 
 // redux, redux toolkit
 import { Provider } from "react-redux";
-import store from "reducers/store";
+import configureStore from "reducers/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={configureStore}>
       <App />
     </Provider>
     <ToastContainer />
