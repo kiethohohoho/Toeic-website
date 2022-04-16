@@ -27,7 +27,12 @@ const privateRoute = (routes) => {
         key={index}
         path={route.path}
         element={<AuthRoute roles={route.role}>{route.element}</AuthRoute>}
-      />
+      >
+        {route.children &&
+          route.children.map((subLink, index) => (
+            <Route key={index} path={subLink.path} element={subLink.element} />
+          ))}
+      </Route>
     );
   });
 };

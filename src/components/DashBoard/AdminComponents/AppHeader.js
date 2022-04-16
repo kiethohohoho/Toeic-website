@@ -18,6 +18,7 @@ import { AppBreadcrumb } from "./index";
 import { AppHeaderDropdown } from "./header/index";
 import { logo } from "../../../assets/brand/logo";
 import { isStatus } from "reducers/navbarSlice";
+import Logout from "features/Auth/Logout";
 
 const AppHeader = () => {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ const AppHeader = () => {
           </CNavItem>
           <CNavItem>
             <CNavLink href="#">Settings</CNavLink>
+          </CNavItem>
+          <CNavItem>
+            <Logout />
           </CNavItem>
         </CHeaderNav>
         <CHeaderNav>

@@ -1,7 +1,8 @@
+import DashBoard from "components/DashBoard";
 import React from "react";
 
 const Teacher = () => {
-  return <div>trang teacher</div>;
+  return <DashBoard />;
 };
 
 export default Teacher;

@@ -13,7 +13,16 @@ $enable-rtl: true;
   will-change: auto;
   @include transition(padding 0.15s);
 }
+.logoBrandAdmin > svg {
+  height: 64px !important;
+  width: 70px !important;
+  transform: translateX(-36px);
 
+  & + p {
+    margin: 0;
+    transform: translateX(-41px);
+  }
+}
 .example {
   &:not(:first-child) {
     margin-top: 1.5rem;

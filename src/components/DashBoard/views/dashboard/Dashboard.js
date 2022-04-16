@@ -54,7 +54,7 @@ import avatar6 from "../../../../assets/images/avatars/6.jpg";
 import WidgetsBrand from "../widgets/WidgetsBrand";
 import WidgetsDropdown from "../widgets/WidgetsDropdown";
 
-const Dashboard = () => {
+const Revenue = () => {
   const random = (min, max) =>
     Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -518,4 +518,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Revenue;
