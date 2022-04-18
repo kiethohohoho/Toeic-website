@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { isLogout } from "reducers/authSlice";
 
-const Logout = () => {
+const Logout = ({ customStyle }) => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -14,7 +14,11 @@ const Logout = () => {
     navigate("/login");
   };
   return (
-    <button className="btn danger" onClick={() => handleLogout()}>
+    <button
+      style={customStyle}
+      className="btn danger"
+      onClick={() => handleLogout()}
+    >
       Đăng xuất
     </button>
   );

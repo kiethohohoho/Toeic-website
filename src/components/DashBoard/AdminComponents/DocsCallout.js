@@ -5,7 +5,7 @@ import { CCallout, CLink } from "@coreui/react";
 // import packageJson from '../../package.json'
 
 const DocsCallout = (props) => {
-  const { content, href, name } = props;
+  const { content, name } = props;
 
   const plural = name.slice(-1) === "s" ? true : false;
 

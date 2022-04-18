@@ -25,13 +25,11 @@ const AppSidebar = () => {
     return navigation?.filter((nav) => nav.role === isRole);
   };
 
-  console.log(pickNavigate(navigation));
-
   return (
     <CSidebar position="fixed" visible={show}>
       <CSidebarBrand className="d-none d-md-flex logoBrandAdmin" to="/">
         <CIcon className="sidebar-brand-full" icon={logohoangtoeic} />
-        <p>HOANG TOEIC</p>
+        <p>HOÀNG TOEIC</p>
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar position="relative">

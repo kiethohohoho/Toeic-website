@@ -27,22 +27,30 @@ const BlankComponent = () => {
 
 const _nav = [
   {
+    component: CNavTitle,
+    name: "Quản Lý",
+    role: "admin",
+  },
+  {
     component: CNavItem,
-    name: "Revenue",
+    name: "Doanh Thu",
     to: "revenue",
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-    role: "teacher",
-  },
-  {
-    component: CNavTitle,
-    name: "Theme",
+    role: "admin",
   },
   {
     component: CNavItem,
-    name: "Colors",
-    to: "theme/colors",
+    name: "Người Dùng",
+    to: "usersmanage",
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    role: "admin",
+  },
+  {
+    component: CNavItem,
+    name: "Khóa Học",
+    to: "coursesmanage",
     icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
-    role: "teacher",
+    role: "admin",
   },
   {
     component: CNavItem,

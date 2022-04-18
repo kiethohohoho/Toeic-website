@@ -1,8 +1,10 @@
 import Accordion from "components/DashBoard/views/base/accordion/Accordion";
 import Breadcrumbs from "components/DashBoard/views/base/breadcrumbs/Breadcrumbs";
-import Revenue from "components/DashBoard/views/dashboard/Dashboard";
+import CoursesManage from "components/DashBoard/views/CoursesManage/CoursesManage";
+import Revenue from "components/DashBoard/views/Revenue/Revenue";
 import Colors from "components/DashBoard/views/theme/colors/Colors";
 import Typography from "components/DashBoard/views/theme/typography/Typography";
+import UsersManage from "components/DashBoard/views/UsersManage/UsersManage";
 import Admin from "features/Admin/Admin";
 import AdminProfile from "features/Admin/AdminProfile";
 import ForgotPassword from "features/Auth/ForgotPassword";
@@ -66,7 +68,6 @@ const AUTH_ROUTE = [
 const ADMIN_ROUTE = [
   { role: "admin", path: "/admin", element: <Admin /> },
   { role: "admin", path: "/admin/profile", element: <AdminProfile /> },
-  // { role: "admin", path: "/admin/theme", element: <Colors /> },
 ];
 
 const DASHBOARD_ROUTE = [
@@ -75,10 +76,9 @@ const DASHBOARD_ROUTE = [
     path: "/admin",
     element: <Admin />,
     children: [
-      { path: "theme/colors", element: <Colors /> },
-      { path: "theme/typography", element: <Typography /> },
-      { path: "base/accordion", element: <Accordion /> },
-      { path: "base/breadcrumbs", element: <Breadcrumbs /> },
+      { path: "revenue", element: <Revenue /> },
+      { path: "usersmanage", element: <UsersManage /> },
+      { path: "coursesmanage", element: <CoursesManage /> },
     ],
   },
   {
@@ -90,7 +90,6 @@ const DASHBOARD_ROUTE = [
       { path: "theme/typography", element: <Typography /> },
       { path: "base/accordion", element: <Accordion /> },
       { path: "base/breadcrumbs", element: <Breadcrumbs /> },
-      { path: "revenue", element: <Revenue /> },
     ],
   },
 ];

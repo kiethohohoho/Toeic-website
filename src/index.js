@@ -13,11 +13,13 @@ import { Provider } from "react-redux";
 import configureStore from "reducers/store";
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <>
     <Provider store={configureStore}>
       <App />
     </Provider>
     <ToastContainer />
-  </React.StrictMode>,
+  </>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );

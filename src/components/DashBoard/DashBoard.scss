@@ -13,7 +13,7 @@ $enable-rtl: true;
   will-change: auto;
   @include transition(padding 0.15s);
 }
-.logoBrandAdmin > svg {
+.sidebar-brand-full {
   height: 64px !important;
   width: 70px !important;
   transform: translateX(-36px);
@@ -21,6 +21,18 @@ $enable-rtl: true;
   & + p {
     margin: 0;
     transform: translateX(-41px);
+  }
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 1000px;
+    margin: 1.75rem auto;
+  }
+}
+@media (min-width: 768px) {
+  .special-col-md-75 {
+    flex: 0 0 auto;
+    width: 75%;
   }
 }
 .example {
