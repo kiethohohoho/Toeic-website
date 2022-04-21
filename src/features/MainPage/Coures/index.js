@@ -3,12 +3,14 @@ import Container from "components/Container";
 import CourseItem from "components/CourseItem";
 import LayoutMainPage from "components/LayoutMainPage";
 import { useEffect, useState } from "react";
-import "./Courses.scss";
 import CoursesSkeleton from "./Skeleton";
+import "./Courses.scss";
 
 const Course = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [total, setTotal] = useState(0);
+
   const [page] = useState("1");
   const [limit, setLimit] = useState(4);
 
@@ -18,16 +20,20 @@ const Course = () => {
   }, []);
 
   const getCourses = async () => {
+    limit === 4 && setCourses([]);
     setLoading(true);
     const params = { page, limit };
     try {
       const response = await coursesApi.getCourses(params);
       setLoading(false);
-      const { courses } = response;
-      setCourses(courses);
+      const { courses, total } = response;
 
-      //handle show more
-      const newLimit = limit + 4;
+      setCourses(courses);
+      setTotal(total);
+
+      //handle show more, hide
+      const newLimit = limit < total ? limit + 4 : 4;
+
       setLimit(newLimit);
     } catch (error) {
       console.log("lỗi rồi", error);
@@ -36,7 +42,7 @@ const Course = () => {
 
   const renderCourses = (courses) => {
     let result = [];
-    if (courses.length) {
+    if (courses?.length) {
       let a = courses.map((course, index) => (
         <CourseItem key={index} course={course} />
       ));
@@ -61,12 +67,14 @@ const Course = () => {
           <div className="headingTitle">
             <h2>Danh sách các khóa học</h2>
           </div>
-          <div className="courseList flex-row-center">
-            {renderCourses(courses)}
-          </div>
+          <div className="courseList flex-row">{renderCourses(courses)}</div>
           <div className="showMoreBtn flex-row-center">
             <hr />
-            <button onClick={() => handleShowMore()}>Xem thêm</button>
+            {total > courses.length ? (
+              <button onClick={() => handleShowMore()}>Xem thêm</button>
+            ) : (
+              <button onClick={() => handleShowMore()}>Ẩn đi</button>
+            )}
             <hr />
           </div>
         </div>
