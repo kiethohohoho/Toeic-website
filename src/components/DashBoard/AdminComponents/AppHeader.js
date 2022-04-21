@@ -29,27 +29,30 @@ const AppHeader = () => {
         >
           <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
-        <Logout customStyle={{ marginLeft: "auto" }} />
-        <CHeaderNav>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilBell} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilList} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilEnvelopeOpen} size="lg" />
-            </CNavLink>
-          </CNavItem>
-        </CHeaderNav>
-        <CHeaderNav className="ms-3">
-          <AppHeaderDropdown />
-        </CHeaderNav>
+        <div className="flex-row">
+          <CHeaderNav>
+            <CNavItem>
+              <CNavLink href="#">
+                <CIcon icon={cilBell} size="lg" />
+              </CNavLink>
+            </CNavItem>
+            <CNavItem>
+              <CNavLink href="#">
+                <CIcon icon={cilList} size="lg" />
+              </CNavLink>
+            </CNavItem>
+            <CNavItem>
+              <CNavLink href="#">
+                <CIcon icon={cilEnvelopeOpen} size="lg" />
+              </CNavLink>
+            </CNavItem>
+          </CHeaderNav>
+
+          <CHeaderNav className="ms-3">
+            <AppHeaderDropdown />
+          </CHeaderNav>
+          <Logout customStyle={{ marginLeft: "auto" }} />
+        </div>
       </CContainer>
     </CHeader>
   );

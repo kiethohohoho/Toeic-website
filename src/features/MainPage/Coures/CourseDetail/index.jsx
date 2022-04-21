@@ -23,9 +23,9 @@ const CourseDetail = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    console.log(chapters);
-  }, [chapters]);
+  // useEffect(() => {
+  //   console.log(chapters);
+  // }, [chapters]);
 
   const getCourseId = async () => {
     const { id } = params;
