@@ -3,6 +3,24 @@ import { imageSlider } from "contants";
 import { Link } from "react-router-dom";
 import { Zoom } from "react-slideshow-image";
 import { sliderStyles } from "styles";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import "./SliderBanner.scss";
+
+const BtnPrev = ({ onClick }) => {
+  return (
+    <button className="btnSlide btnPrev" onClick={onClick}>
+      <ChevronLeftIcon />
+    </button>
+  );
+};
+const BtnNext = ({ onClick }) => {
+  return (
+    <button className="btnSlide btnNext" onClick={onClick}>
+      <ChevronRightIcon />
+    </button>
+  );
+};
 
 const zoomOutProperties = {
   duration: 5000,
@@ -11,6 +29,9 @@ const zoomOutProperties = {
   indicators: true,
   scale: 0.4,
   arrows: true,
+  autoplay: true,
+  prevArrow: <BtnPrev />,
+  nextArrow: <BtnNext />,
 };
 
 const SliderBanner = () => {

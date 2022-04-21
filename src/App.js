@@ -1,13 +1,11 @@
-import Colors from "components/DashBoard/views/theme/colors/Colors";
 import {
   ADMIN_ROUTE,
   AUTH_ROUTE,
+  DASHBOARD_ROUTE,
   MAIN_ROUTE,
   STUDENT_ROUTE,
   TEACHER_ROUTE,
-  DASHBOARD_ROUTE,
 } from "contants/routes";
-import Admin from "features/Admin/Admin";
 import { BrowserRouter, Routes } from "react-router-dom";
 import { authRoute, mainRoute, privateRoute } from "routes";
 function App() {

@@ -91,25 +91,6 @@ body {
   overflow: hidden;
 }
 
-//Slideshow css
-.slide-container {
-  padding: 10px 0 0 21px;
-  .react-slideshow-container {
-    width: 95%;
-    margin: 0 auto;
-    button[data-type="prev"] {
-      margin-right: -40px;
-    }
-    button[data-type="next"] {
-      margin-left: -40px;
-    }
-    svg {
-      width: 17px;
-      height: 17px;
-    }
-  }
-}
-
 //Courses Page
 a {
   background-color: transparent;

@@ -1,0 +1,29 @@
+//Slideshow css
+.slide-container {
+  position: relative;
+  padding: 30px;
+  //   .react-slideshow-container {
+  //     width: 95%;
+  //     margin: 0 auto;
+  //   }
+
+  .btnSlide {
+    position: absolute;
+    z-index: 20;
+    width: 30px;
+    height: 30px;
+    background: rgb(237, 224, 224);
+    border-radius: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.btnPrev {
+      left: 35px;
+    }
+    &.btnNext {
+      right: 35px;
+    }
+  }
+}
