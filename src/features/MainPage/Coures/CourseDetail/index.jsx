@@ -8,6 +8,7 @@ import CourseRequirements from "./CourseRequirements";
 import CoursePurchaseBadge from "./CoursePurchaseBadge";
 
 import "./CourseDetail.scss";
+import LayoutMainPage from "components/LayoutMainPage";
 
 const CourseDetail = () => {
   const params = useParams();
@@ -59,21 +60,25 @@ const CourseDetail = () => {
   };
 
   return (
-    <div className="coureDetailWrapper">
-      <div className="left">
-        <CourseTitle courseInfo={courseInfo[0]} />
-        <CourseGains />
-        {/* course info */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-          <h2>Nội dung khoá học</h2>
-          <div>{renderChapters(chapters)}</div>
+    <LayoutMainPage>
+      <div className="coureDetailWrapper">
+        <div className="left">
+          <CourseTitle courseInfo={courseInfo[0]} />
+          <CourseGains />
+          {/* course info */}
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <h2>Nội dung khoá học</h2>
+            <div>{renderChapters(chapters)}</div>
+          </div>
+          <CourseRequirements />
         </div>
-        <CourseRequirements />
+        <div className="right">
+          <CoursePurchaseBadge courseInfo={courseInfo[0]} />
+        </div>
       </div>
-      <div className="right">
-        <CoursePurchaseBadge courseInfo={courseInfo[0]} />
-      </div>
-    </div>
+    </LayoutMainPage>
   );
 };
 

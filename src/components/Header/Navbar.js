@@ -21,7 +21,7 @@ function Navbar() {
 
   return (
     <>
-      <AppBar position="static" className="navbar px-30">
+      <AppBar position="fixed" className="navbar px-30">
         {/* <CssBaseline /> */}
         <Toolbar className="flex-row-between navbarHeader">
           <Typography variant="h4" className="navbarLogo">
@@ -47,7 +47,7 @@ function Navbar() {
         </Toolbar>
       </AppBar>
       {/* outlet in here */}
-      <div className="my-20">
+      <div className="contentChildren">
         <Outlet />
       </div>
     </>
