@@ -10,14 +10,14 @@ import "./SliderBanner.scss";
 const BtnPrev = ({ onClick }) => {
   return (
     <button className="btnSlide btnPrev" onClick={onClick}>
-      <ChevronLeftIcon />
+      <ChevronLeftIcon color="success" />
     </button>
   );
 };
 const BtnNext = ({ onClick }) => {
   return (
     <button className="btnSlide btnNext" onClick={onClick}>
-      <ChevronRightIcon />
+      <ChevronRightIcon color="success" />
     </button>
   );
 };
